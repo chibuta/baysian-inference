@@ -53,13 +53,14 @@ BN <- function(){
   cptH <- matrix(c(0.70, 0.30, 0.40, 0.60), 
                  ncol=2, dimnames=list("H"=yn, "E"=yn))
   
+  #Fit network model
   net.disc <- custom.fit(net, dist=list(A=cptA, B=cptB, C=cptC, D=cptD, 
                                         E=cptE, F=cptF, G=cptG,H=cptH))
-  print(net.disc)
   
   return(net.disc)
 }
-
+#
+#P(D=t|G=f,F=t)
 q1B <- cpquery(BN(), (D=="T"), (G=="F" & F=="T"))
 print(q1B)
 
